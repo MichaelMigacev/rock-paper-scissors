@@ -14,7 +14,33 @@ function computerPlay() {
 			console.log(ERRRRORRRR);
 			break;
 	}
-	console.log(computerSign);
 	return computerSign;
 }
-computerPlay();
+function askChoice() {
+	const choice = prompt("Please choose: rock, paper or scissors.");
+	const lowerCaseChoice = choice.toLowerCase();
+	return lowerCaseChoice;
+}
+function playRound(playerSelection, computerSelection) {
+	if (playerSelection == computerSelection) {
+		text = "It's a tie!";
+	} else if (playerSelection == "rock" && computerSelection == "scissors") {
+		text = "Rock beats scissors. You win!";
+	} else if (playerSelection == "rock" && computerSelection == "paper") {
+		text = "Paper beats rock. You lose! Beeb bop!";
+	} else if (playerSelection == "scissors" && computerSelection == "rock") {
+		text = "Rock beats scissors. You lose! 10101011!";
+	} else if (playerSelection == "scissors" && computerSelection == "paper") {
+		text = "Scissors beat paper. You win!";
+	} else if (playerSelection == "paper" && computerSelection == "rock") {
+		text = "Paper beat rock. You win! Congrats!";
+	} else if (playerSelection == "paper" && computerSelection == "scissors") {
+		text = "Scissors beat paper. You lose! 10101110!";
+	} else {
+		text = "Something went wrong";
+	}
+	return text;
+}
+const playerSelection = askChoice();
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
